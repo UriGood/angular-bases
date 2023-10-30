@@ -1,0 +1,26 @@
+<!-- <p>list works!</p> -->
+<h4>Listado</h4>
+<ol class="list-group my-2">
+  <li class="list-group-item d-flex justify-content-between align-items-center"
+    [ngClass]="{
+      'list-group-item-success':isFirst,
+      'list-group-item-dark': isLast,
+    }"
+    *ngFor="let item of characterList;
+    let i = index;
+    let isFirst = first;
+    let isLast = last;
+    let isEven = even;
+    let isOdd = odd;
+    ">
+    <div>
+      <span class="text-primary">{{ i }}</span>
+      {{ item.name + " - Power: " + item.power }}
+    </div>
+
+    <!-- <span> Es par {{ isEven }}</span> -->
+    <!-- <span> Es impar {{ isOdd }}</span> -->
+
+    <button (click)="onDeleteCharacter(item.id)" class="btn btn-danger py-0 px-1 m-1">x</button>
+  </li>
+</ol>
